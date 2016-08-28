@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  get 'callbacks/google'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root "users#index"
 
   resources :users do 
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   resources :schools do 
     resources :reviews
     resources :bookmarks, only: [:create, :update, :destroy]
-  end
+  end 
 
   resource :session, :only => [:new, :create, :destroy]
   resources :schools, only: [:index, :show]

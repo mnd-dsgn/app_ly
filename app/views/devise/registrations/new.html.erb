@@ -12,6 +12,9 @@
   <div class="form-actions">
     <%= f.button :submit, "Submit", class: "btn btn-success btn-lg center-content" %>
   </div>
+
+  <%= link_to "Sign up with Google", user_google_omniauth_authorize_path %>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
