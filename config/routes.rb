@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'callbacks/google'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "users/registrations" }
   root "users#index"
 
   resources :users do 
