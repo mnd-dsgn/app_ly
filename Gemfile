@@ -27,6 +27,9 @@ gem 'simple_form'
 gem 'twitter-typeahead-rails'
 gem 'progress_bar'
 gem 'yelp', require: 'yelp'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

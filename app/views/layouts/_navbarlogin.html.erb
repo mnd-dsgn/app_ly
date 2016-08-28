@@ -22,12 +22,10 @@
 
       <div class="col-xs-4">
         <div class="name-container">
+            <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "pull-right btn btn-info btn-sm", id: "logout-btn" %>
           <p class="pull-right">
-            <%= link_to "MySchools", user_path(current_user), style: "color: white" %> | 
-            <%= link_to "Logout", logout_path, style: "color: white" %>
+            <%= link_to "MySchools", user_path(current_user), id: "my-schools-btn" %>    </p>
               
-          </p>
-
         </div>
       </div>
 

@@ -25,7 +25,7 @@
       <% end %>
     </div>
     <div class="col-xs-8" id="review-index-new-review-form">
-      <%= render partial: 'shared/new_or_edit_review', locals: { school: @school, review: @review } if @school && signed_in_user? %>
+      <%= render partial: 'shared/new_or_edit_review', locals: { school: @school, review: @review } if @school && user_signed_in? %>
     </div>
     </div>
   </div>

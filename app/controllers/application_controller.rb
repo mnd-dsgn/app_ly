@@ -3,24 +3,31 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :require_login
+
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username]) 
+  end
 
   private
 
-  def sign_in(user)
-    session[:user_id] = user.id
-    @current_user = user
-  end
+  # def sign_in(user)
+  #   session[:user_id] = user.id
+  #   @current_user = user
+  # end
 
-  def sign_out
-    @current_user = nil
-    session.delete(:user_id)
-  end
+  # def sign_out
+  #   @current_user = nil
+  #   session.delete(:user_id)
+  # end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
+  # def current_user
+  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  # end
+  # helper_method :current_user
 
   def signed_in_user?
     !!current_user
@@ -43,16 +50,16 @@ class ApplicationController < ActionController::Base
 
 
   REGIONS = { "U.S. Service Schools": 0,
-              "New England": 1,
-              "Midatlantic": 2,
-              "Great Lakes": 3,
-              "Plains": 4,
-              "Southeast": 5,
-              "Southwest": 6,
-              "Rocky Mountains": 7,
-              "Far West": 8,
-              "Outlying Areas": 9
-            }
+    "New England": 1,
+    "Midatlantic": 2,
+    "Great Lakes": 3,
+    "Plains": 4,
+    "Southeast": 5,
+    "Southwest": 6,
+    "Rocky Mountains": 7,
+    "Far West": 8,
+    "Outlying Areas": 9
+  }
 
   def region_id_translate(input)
     if input.is_a? Integer
@@ -72,11 +79,11 @@ class ApplicationController < ActionController::Base
   helper_method :school_regions
 
   LOCALES = {"13": "City",
-             "23": "Suburb",
-             "33": "Town",
-             "43": "Rural"}
+   "23": "Suburb",
+   "33": "Town",
+   "43": "Rural"}
 
-  def locale_types
+   def locale_types
     locales = []
     LOCALES.each do |k,v|
       locales << [v,k]
@@ -104,6 +111,7 @@ class ApplicationController < ActionController::Base
     schools
   end
   helper_method :bookmarked_schools
+
 
 
 end

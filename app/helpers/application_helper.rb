@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def navbar
-    if signed_in_user?
+    if user_signed_in?
       render "layouts/navbarlogin"
     else
       render "layouts/navbar"

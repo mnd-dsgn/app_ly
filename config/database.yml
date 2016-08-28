@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: college_scorecard_development
+  database: college_scorecard_development2
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

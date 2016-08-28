@@ -24,7 +24,8 @@
 </head>
 <body data-no-turbolinks class="container app-body">
 
-  <%= navbar %>
+
+  <%= navbar unless params[:controller] == "users" && params[:action] == "index"  && !user_signed_in?%>
 
   <br><br><br><br>
 

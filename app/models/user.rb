@@ -1,10 +1,13 @@
 # testing branch commitS!!
 
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_secure_password
 
-  validates :username,
+  validates :email, 
             :presence => true
 
   validates :password,

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :users
   root "users#index"
 
   resources :users do 
@@ -17,8 +18,8 @@ Rails.application.routes.draw do
   resources :schools, only: [:index, :show]
   resources :comparisons, :only => [:index]
 
-  get "login" => "sessions#new"
-  get "logout" => "sessions#destroy"
+  get "login" => "devise/sessions#new"
+  get "logout" => "devise/sessions#destroy"
 
 
 end

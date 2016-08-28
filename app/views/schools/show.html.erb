@@ -5,7 +5,7 @@
 
   <div>
 
-  <% if signed_in_user? %>
+  <% if user_signed_in? %>
     <% if bookmarked?(@school) %>
        <%= button_to "Remove from MySchools", school_bookmark_path(@school.id, find_user_bookmark(@school).id), method: :delete, class: "btn btn-success", id: "bookmark-button" %> 
     <% else %>
