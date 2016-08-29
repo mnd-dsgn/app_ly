@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: college_scorecard_production
-  username: college_scorecard
-  password: <%= ENV['COLLEGE_SCORECARD_DATABASE_PASSWORD'] %>
+  database: college_scorecard_production2
+  # username: college_scorecard
+  # password: <%= ENV['COLLEGE_SCORECARD_DATABASE_PASSWORD'] %>
