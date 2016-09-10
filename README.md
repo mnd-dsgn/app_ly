@@ -1,5 +1,3 @@
-Testing git branching...
-
 # App.ly
 
 Check it out [here!](https://apply-.herokuapp.com)
